@@ -86,8 +86,8 @@ try:
             """
 
             # Execute the insert query with data
-            cursor.execute(insert_query, (f"{driver1} vs {driver2}", f"{driver1} ({odds1}) vs {driver2} ({odds2})", "Pinnacle", odds1))
-            cursor.execute(insert_query, (f"{driver2} vs {driver1}", f"{driver2} ({odds2}) vs {driver1} ({odds1})", "Pinnacle", odds2))
+            cursor.execute(insert_query, (f"{driver1} vs {driver2}", f"{driver1}", "Pinnacle", odds1))
+            cursor.execute(insert_query, (f"{driver1} vs {driver2}", f"{driver2}", "Pinnacle", odds2))
 
         # Commit changes
         conn.commit()
