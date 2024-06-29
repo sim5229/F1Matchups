@@ -10,7 +10,7 @@ import mysql.connector
 driver = webdriver.Chrome()
 
 # URL of the webpage to scrape
-url = "https://play.ballybet.com/sports#event/1020820428"
+url = "https://play.ballybet.com/sports#event/1020820781"
 driver.get(url)
 
 def rearrange_name(full_name):
@@ -84,8 +84,8 @@ try:
     try:
         conn = mysql.connector.connect(
             host='localhost',
-            user='username',
-            password='password',
+            user='root',
+            password='mets5229',
             database='F1Database'
         )
         if conn.is_connected():

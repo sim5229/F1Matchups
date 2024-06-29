@@ -38,10 +38,10 @@ for content_block in content_blocks:
         driver_odds = row.find_all('span', class_='sportsbook-odds american default-color')
 
         if len(driver_names) == 2 and len(driver_odds) == 2:
-            driver1 = driver_names[0].text.replace("[Race]", "").strip()
-            driver2 = driver_names[1].text.replace("[Race]", "").strip()
-            odds1 = float(driver_odds[0].text.strip())  # Convert odds to float
-            odds2 = float(driver_odds[1].text.strip())  # Convert odds to float
+            driver1 = driver_names[0].text.replace("[Sprint]", "").strip()
+            driver2 = driver_names[1].text.replace("[Sprint]", "").strip()
+            odds1 = driver_odds[0].text.strip()
+            odds2 = driver_odds[1].text.strip()
 
             if (driver2 < driver1):
                 temp = driver1
@@ -66,8 +66,8 @@ driver.quit()
 try:
     conn = mysql.connector.connect(
         host='localhost',
-        user='username',
-        password='password',
+        user='root',
+        password='mets5229',
         database='F1Database'
     )
     if conn.is_connected():

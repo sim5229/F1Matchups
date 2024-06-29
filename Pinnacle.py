@@ -10,7 +10,7 @@ import mysql.connector
 driver = webdriver.Chrome()
 
 # URL of the webpage to scrape
-url = "https://www.pinnacle.com/en/formula-1/spanish-grand-prix/matchups/#period:0"
+url = "https://www.pinnacle.com/en/formula-1/austrian-grand-prix-sprint/matchups/#period:0"
 driver.get(url)
 
 # Wait until the contentBlock square is loaded
@@ -38,8 +38,8 @@ for row in rows:
     if len(participants) == 2 and len(buttons) == 2:
         driver1 = participants[0].text.strip()
         driver2 = participants[1].text.strip()
-        odds1 = float(buttons[0].find('span').text.strip())  # Convert odds to float
-        odds2 = float(buttons[1].find('span').text.strip())  # Convert odds to float
+        odds1 = buttons[0].find('span').text.strip()
+        odds2 = buttons[1].find('span').text.strip()
 
         if (driver2 < driver1):
             temp = driver1
@@ -64,8 +64,8 @@ driver.quit()
 try:
     conn = mysql.connector.connect(
         host='localhost',
-        user='username',
-        password='password',
+        user='root',
+        password='mets5229',
         database='F1Database'
     )
     if conn.is_connected():
